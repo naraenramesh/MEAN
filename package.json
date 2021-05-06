@@ -44,10 +44,6 @@
     "tslint": "~6.0.0",
     "typescript": "^3.8.3"
   },
-  "description": "CRUD app",
-  "main": "app.js",
-  "author": "Naraen",
-  "license": "ISC",
 "engines": {
     "node": "12.x"
   }
