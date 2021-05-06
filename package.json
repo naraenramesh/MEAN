@@ -47,8 +47,8 @@
   "description": "CRUD app",
   "main": "app.js",
   "author": "Naraen",
-  "license": "ISC"
-},
+  "license": "ISC",
 "engines": {
     "node": "12.x"
   }
+},
