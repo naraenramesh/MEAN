@@ -1,31 +1,96 @@
-table {
-    width: 100%;
-  }
-  
   .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  td, th {
-        width: 25%;
+
+    width: 30%;
   }
   tr.example-detail-row {
     height: 0;
   }
-  
+
   tr.example-issue-row:not(.example-expanded-row):hover {
     background: whitesmoke;
   }
-  
+
   tr.example-issue-row:not(.example-expanded-row):active {
     background: #efefef;
   }
-  
+
   .example-issue-row td {
     border-bottom-width: 0;
   }
-  
-  .example-issue-detail {
+
+  .issue-detail {
     overflow: hidden;
   }
-  
+  .issue-description{
+    width:100%;
+
+  }
+  .issuedesc{
+    font-size:medium;
+    font-family:Georgia;
+  }
+
+
+table {
+  width: 100%;
+  background:black;
+  color:white;
+  table-layout: fixed;
+}
+
+.gg {
+  display:none;
+}
+
+mat-paginator {
+
+  background:transparent;
+  color:black;
+}
+
+.matInput {
+  width:40%;
+}
+
+td{
+color:White;
+overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  color:White;
+  font-weight: bold;
+}
+
+mat-label {
+  color:black;
+  font-family:sans-serif;
+  font-style: italic;
+
+  font-size:medium;
+  font-weight: bold;
+}
+
+.mat-form-field {
+
+  width: 40%;
+}
+
+button {
+  display: inline-block;
+  margin:10px;
+}
+.mat-column-expandedDetail {
+  flex:none;
+  width:10%
+}
+.mat-column-issue_title {
+  flex: none;
+  width: 30%;
+}
+

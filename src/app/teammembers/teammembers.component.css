@@ -1,13 +1,41 @@
 
 table {
     width: 100%;
+    background:rgba(0, 0, 0, 0.555);
+    color:white;
+  }
+
+  mat-paginator {
+ 
+    background:transparent;
+    color:black;
+  }
+
+  .matInput {
+    width:40%;
   }
   
   .mat-form-field {
-    font-size: 14px;
-    width: 100%;
+  
+    width: 40%;
   }
   
-  td, th {
+  td{
+  width: 25%;
+    color:White;
+  } 
+  th {
     width: 25%;
+    color:White;
+    font-weight: bold;
   }
+
+  mat-label {
+    color:black;
+    font-family:sans-serif;
+    font-style: italic;
+    
+    font-size:medium;
+    font-weight: bold;
+  }
+
