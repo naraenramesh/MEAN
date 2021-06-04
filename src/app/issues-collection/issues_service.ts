@@ -21,7 +21,7 @@ issues: Issues[]= [
 
 getIssues(team:string)
 {
-    return this.http.get<any>("https://secret-springs-41922.herokuapp.com/api/issues/" + team)
+    return this.http.get<any>("https://mirrorview.herokuapp.com/api/issues/" + team)
     .pipe(map((issuedata)=>
     {
    return  issuedata.map((info)=>
@@ -74,7 +74,7 @@ return this.issues.map(tname =>tname.issue_title.toUpperCase())
 
 deleteIssue(issueid:string)
 {
-  return this.http.delete<any>("https://secret-springs-41922.herokuapp.com/api/issues/" + issueid)
+  return this.http.delete<any>("https://mirrorview.herokuapp.com/api/issues/" + issueid)
   .pipe(map((issuedata)=>
   {
  return  issuedata.map((info)=>
@@ -101,7 +101,7 @@ issue_updates:info.issue_updates
 
 updateIssue(issueid:string,issueContent:Issues)
 {
-  return  this.http.put<any>('https://secret-springs-41922.herokuapp.com/api/issues/'+ issueid ,issueContent)
+  return  this.http.put<any>('https://mirrorview.herokuapp.com/api/issues/'+ issueid ,issueContent)
 .pipe(map((info)=>
 {
 return {
@@ -127,7 +127,7 @@ issue_updates:info.issue_updates
 addIssue(issue:Issues)
 {
 
-return this.http.post<any>('https://secret-springs-41922.herokuapp.com/api/issues',issue)
+return this.http.post<any>('https://mirrorview.herokuapp.com/api/issues',issue)
 .pipe(map((info)=>
 {
 return {

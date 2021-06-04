@@ -21,7 +21,7 @@ associates: Associate[]= [
 getAssociates()
 {
 
-    return this.http.get<any>('https://secret-springs-41922.herokuapp.com/api/associates')
+    return this.http.get<any>('https://mirrorview.herokuapp.com/api/associates')
     .pipe(map((empdata)=>
     {
    return  empdata.map((info)=>
@@ -78,7 +78,7 @@ return this.associates.map(tname =>tname.empname.toUpperCase())
 
 deleteAssociate(name1:string)
 {
- return this.http.delete<any>("https://secret-springs-41922.herokuapp.com/api/associates/" + name1).pipe(map((empdata)=>
+ return this.http.delete<any>("https://mirrorview.herokuapp.com/api/associates/" + name1).pipe(map((empdata)=>
   {
  return  empdata.map((info)=>
  {
@@ -109,7 +109,7 @@ console.log(em);
 updateAssociate(associate:string,associateContent:Associate)
 {
 
-return this.http.put<any>('https://secret-springs-41922.herokuapp.com/api/associates/'+ associate ,associateContent)
+return this.http.put<any>('https://mirrorview.herokuapp.com/api/associates/'+ associate ,associateContent)
 .pipe(catchError((em:HttpErrorResponse)=>{
   //console.log(em);
   let errorMessage=em.error.error
@@ -140,7 +140,7 @@ return this.http.put<any>('https://secret-springs-41922.herokuapp.com/api/associ
 
 addAssociate(associate:Associate)
 {
-return this.http.post<any>('https://secret-springs-41922.herokuapp.com/api/associates',associate)
+return this.http.post<any>('https://mirrorview.herokuapp.com/api/associates',associate)
 .pipe(catchError((em:HttpErrorResponse)=>{
   let errorMessage=em.error.error
   return throwError(errorMessage);

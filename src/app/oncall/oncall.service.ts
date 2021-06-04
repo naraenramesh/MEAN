@@ -20,7 +20,7 @@ oncall: oncall[]= [
 
 getoncall(team:any)
 {
-    return this.http.post<any>("https://secret-springs-41922.herokuapp.com/api/oncall/getdates",team)
+    return this.http.post<any>("https://mirrorview.herokuapp.com/api/oncall/getdates",team)
     .pipe(map((oncalldata)=>
     {
    return  oncalldata.map((info)=>
@@ -67,7 +67,7 @@ return this.oncall.map(tname =>tname.oncallDate);
 
 updateoncall(oncallContent:oncall)
 {
-  return this.http.put<any>('https://secret-springs-41922.herokuapp.com/api/oncall/' ,oncallContent)
+  return this.http.put<any>('https://mirrorview.herokuapp.com/api/oncall/' ,oncallContent)
 .pipe(map((oncalldata)=>
 {
 return  oncalldata.map((info)=>
@@ -98,7 +98,7 @@ oncallSecondaryContact:info.oncallSecondaryContact
 addoncall(oncall:oncall)
 {
   //console.log("kdkd")
-return this.http.post<any>('https://secret-springs-41922.herokuapp.com/api/oncall/',oncall)
+return this.http.post<any>('https://mirrorview.herokuapp.com/api/oncall/',oncall)
 .pipe(map((oncalldata)=>
 {
 return  oncalldata.map((info)=>

@@ -34,7 +34,7 @@ export class AuthService
     return this.http
       .post<AuthResponseData>(
      //   'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDljNKejmHVUmdVxq2bSsLg4eAKHfL6lPs',
-     'https://secret-springs-41922.herokuapp.com/api/users/signup' ,  {
+     'https://mirrorview.herokuapp.com/api/users/signup' ,  {
      username:uname,
      email: email,
           password: password,
@@ -54,7 +54,7 @@ export class AuthService
     return this.http
       .post<AuthResponseData>(
         //'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDljNKejmHVUmdVxq2bSsLg4eAKHfL6lPs',
-        'https://secret-springs-41922.herokuapp.com/api/users/login' ,
+        'https://mirrorview.herokuapp.com/api/users/login' ,
      {
           email: email,
           password: password
@@ -131,7 +131,7 @@ export class AuthService
     {
       return this.http
       .delete<AuthResponseData>(
-             'https://secret-springs-41922.herokuapp.com/api/users/' + email
+             'https://mirrorview.herokuapp.com/api/users/' + email
       )  .pipe(
         catchError(this.handleError),
         tap(resData => {
@@ -145,7 +145,7 @@ export class AuthService
  {
   return this.http
   .put<AuthResponseData>(
-         'https://secret-springs-41922.herokuapp.com/api/users/updatepassword',
+         'https://mirrorview.herokuapp.com/api/users/updatepassword',
          {
 email:email,
 password:password
@@ -164,7 +164,7 @@ password:password
     {
       return this.http
       .put<AuthResponseData>(
-             'https://secret-springs-41922.herokuapp.com/api/users',
+             'https://mirrorview.herokuapp.com/api/users',
              {
 email:email,
 privilege:privilege

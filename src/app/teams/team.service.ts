@@ -30,7 +30,7 @@ constructor(private http:HttpClient){}
 
 getTeams()
 {
-    return this.http.get<any>('https://secret-springs-41922.herokuapp.com/api/teams')
+    return this.http.get<any>('https://mirrorview.herokuapp.com/api/teams')
     .pipe(catchError((em:HttpErrorResponse)=>{
       let errorMessage=em.error.error
       return throwError(errorMessage);
@@ -69,7 +69,7 @@ return this.teams.find(name=>name.teamname===name1);
 
 deleteTeam(name1:string)
 {
- return this.http.delete<any>("https://secret-springs-41922.herokuapp.com/api/teams/" + name1)
+ return this.http.delete<any>("https://mirrorview.herokuapp.com/api/teams/" + name1)
   .pipe(catchError((em:HttpErrorResponse)=>{
     let errorMessage=em.error.error
     return throwError(errorMessage);
@@ -96,7 +96,7 @@ teammailId:info.teammailId
 
 updateTeam(team:String,teamContent:Team)
 {
-return this.http.put<any>('https://secret-springs-41922.herokuapp.com/api/teams/'+ team ,teamContent)
+return this.http.put<any>('https://mirrorview.herokuapp.com/api/teams/'+ team ,teamContent)
 .pipe(catchError((em:HttpErrorResponse)=>{
   let errorMessage=em.error.error
   return throwError(errorMessage);
@@ -122,7 +122,7 @@ teammailId:info.teammailId
 addTeam(team:Team)
 {
 
-return this.http.post<any>('https://secret-springs-41922.herokuapp.com/api/teams',team)
+return this.http.post<any>('https://mirrorview.herokuapp.com/api/teams',team)
 .pipe(catchError((em:HttpErrorResponse)=>{
   let errorMessage=em.error.error
   return throwError(errorMessage);
