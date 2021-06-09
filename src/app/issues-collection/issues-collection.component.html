@@ -5,7 +5,7 @@
     <input matInput (keyup)="applyFilter($event)" #input>
   </mat-form-field>
     <button mat-mini-fab color="white" (click)="onAddIssue()">
-      <mat-icon>plus_one</mat-icon>
+      <mat-icon class="p1">plus_one</mat-icon>
     </button>
 <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows matSort
@@ -35,10 +35,10 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Issue Status </th>
         <td mat-cell *matCellDef="let row"> {{row.issue_status}}
 
-          <button mat-mini-fab color="white" (click)="OneditIssue(row)">
+          <button  (click)="OneditIssue(row)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-mini-fab color="white" (click)="OndeleteIssue(row)">
+          <button (click)="OndeleteIssue(row)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

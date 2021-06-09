@@ -41,33 +41,23 @@ sel_oncall:oncall;
    oncallForm:FormGroup
    oncallDateStart=null;
    oncallDateEnd=null;
-
-
+on_list:oncall[]
   async ngOnInit() {
 
-
+    
     this.rs.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.ru.params.subscribe((ps:Params)=>{
-      if(ps['name'])
-      {
-
-        this.tname=ps['name'];
+    this.tname= this.ru.snapshot.params.name;
+      if(this.tname)
+      {        
         this.oncallForm =new FormGroup({
           oncallDateStart:new FormControl(this.oncallDateStart,[Validators.required]),
           oncallDateEnd:new FormControl(this.oncallDateEnd),
           team: new FormControl(this.tname)
         });
 
-        this.as.oncallStatus.subscribe(as=>{
-          this.isLoading=true;
- this.oncall_list=as
-  this.dataSource = new MatTableDataSource(this.oncall_list);
-  this.dataSource.paginator = this.paginator;
-  this.dataSource.sort= this.sort
-this.isLoading=false;
-        })
+
       }
-      })
+      
 
   }
 
@@ -83,13 +73,17 @@ this.isLoading=false;
 
 async onFindOncall() {
  this.isLoading=true;
+ this.oncallForm.patchValue({team:this.tname})
+ console.log(this.oncallForm.value)
+ 
  this.oncall_list=await this.as.getoncall(this.oncallForm.value).toPromise();
- this.oncallForm.reset()
- this.oncallForm.markAsUntouched();
+ console.log(this.oncall_list)
+ this.oncallForm.reset('');
   this.dataSource = new MatTableDataSource(this.oncall_list);
 
   this.dataSource.paginator = this.paginator;
-  this.dataSource.sort= this.sort
+  console.log("Hi")
+ this.dataSource.sort= this.sort
 this.isLoading=false;
 }
 onAddoncall()

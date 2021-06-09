@@ -28,7 +28,7 @@ getoncall(team:any)
     return {
 
 oncallId:info._id,
-oncallDate:info.oncallDate,
+oncallDate:new Date(info.oncallDate),
 oncallPrimary:info.oncallPrimary,
 oncallSecondary:info.oncallSecondary,
 oncallPrimaryEmail:info.oncallPrimaryEmail,
@@ -75,7 +75,7 @@ return  oncalldata.map((info)=>
 return {
 
 oncallId:info._id,
-oncallDate:info.oncallDate,
+oncallDate:new Date(info.oncallDate),
 oncallPrimary:info.oncallPrimary,
 oncallSecondary:info.oncallSecondary,
 oncallPrimaryEmail:info.oncallPrimaryEmail,
@@ -106,7 +106,7 @@ return  oncalldata.map((info)=>
 return {
 
 oncallId:info._id,
-oncallDate:info.oncallDate,
+oncallDate:new Date(info.oncallDate),
 oncallPrimary:info.oncallPrimary,
 oncallSecondary:info.oncallSecondary,
 oncallPrimaryEmail:info.oncallPrimaryEmail,

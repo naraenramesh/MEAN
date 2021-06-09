@@ -1,5 +1,5 @@
 .example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
+    margin-left: 0.5rem;
   }
 
   .example-right-align {
@@ -15,25 +15,35 @@
     -moz-appearance: textfield;
   }
   .login-box{
-    margin-left: 40%;
-    margin-top: 15%;
+    margin: 15% 15% 25% 15%;
     font-family: Helvetica, sans-serif;
 
 }
 
 .example-card {
-    max-width: 300px;
-    min-height: 120px;
+    width:23rem;
     background:rgba(0, 0, 0, 0.801);
     color:white;
     font-weight: bolder;
-    padding:15px;
+    padding:0.932rem;
+  }
+
+  @media(min-width:40rem)
+  {
+    .login-box{
+      margin: 15% 15% 25% 35%;
+  
+  }
+  
+  .example-card {
+      width:26rem;
+    }
   }
   .loginbutton{
     background:white;
     color:black;
     font-weight: bolder;
-    padding:2px;
+    padding:0.125rem
   }
 mat-label{
   
@@ -44,5 +54,5 @@ mat-label{
     background-image: url('src/app/pictures/login-lock.png');
     background-position: center;
     background-size: cover;
-    padding:5px;
+    padding:0.3125rem;
   }

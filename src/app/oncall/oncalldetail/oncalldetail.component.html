@@ -39,7 +39,7 @@ type="submit" [disabled]="!oncallForm.valid">Search</button>
       <ng-container matColumnDef="oncallSecondary">
         <th mat-header-cell *matHeaderCellDef  mat-sort-header>Secondary Oncall</th>
         <td mat-cell *matCellDef="let row"> {{row.oncallSecondary}}
-          <button class="editclass" mat-mini-fab color="white" (click)="Oneditoncall(row)">
+          <button class="editclass" (click)="Oneditoncall(row)">
             <mat-icon>edit</mat-icon>
           </button>
 
