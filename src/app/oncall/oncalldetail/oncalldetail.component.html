@@ -46,7 +46,9 @@ type="submit" [disabled]="!oncallForm.valid">Search</button>
         </td>
       </ng-container>
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the input date range</td>
+        <td class="mat-cell" colspan="4" *ngIf="fsearch">No data matching the input date range</td>
+        <td class="mat-cell" colspan="4" *ngIf="!fsearch">Please enter input date value</td>
+
       </tr>
    <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let oncall;let i=index"  [attr.colspan]="columnsToDisplay.length">

@@ -1,0 +1,32 @@
+.example-form {
+    max-width: 56.25rem;
+    width: 70%;
+    min-height :33rem;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    display: inline-block;
+    padding-right: 2px;
+  }
+
+
+  @media(min-width:40rem)
+  {
+    .example-form {
+      max-width: 56.25rem;
+      width: 90%;
+      min-height :33rem;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }
+    
+    td {
+      padding-right: 8px;
+    }
+  }

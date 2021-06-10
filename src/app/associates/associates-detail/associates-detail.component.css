@@ -27,8 +27,18 @@ li {
 .empsideheading{
 font-weight: bold;
 display: inline-block;
-width:30%;
+width:60%;
 font-size:small !important;
+}
+
+@media(min-width:40rem)
+{
+  .empsideheading{
+    font-weight: bold;
+    display: inline-block;
+    width:40%;
+    font-size:small !important;
+    }
 }
 .cont{
   display:inline-block;

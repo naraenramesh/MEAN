@@ -1,0 +1,27 @@
+td{
+    display: inline-block;
+}
+
+mat-dialog-content{
+    min-height:60rem;
+    padding-bottom:0;
+}
+.example-full-width{
+    width:100%
+}
+@media(min-width:40rem)
+{
+
+td{
+display: inline-block;
+}
+
+mat-dialog-content{
+    min-height:60rem;
+    padding-top:0;
+    padding-bottom:0;
+}
+.example-full-width{
+    width:100%
+}
+}

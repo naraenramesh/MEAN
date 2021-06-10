@@ -33,7 +33,8 @@ export class OncalldetailComponent implements OnInit  {
 
   }
   enable_edit=false;
-tname:string;
+fsearch=false
+  tname:string;
 isLoading:boolean
 matID:number;
 sel_oncall:oncall;
@@ -54,9 +55,15 @@ on_list:oncall[]
           oncallDateEnd:new FormControl(this.oncallDateEnd),
           team: new FormControl(this.tname)
         });
+ this.as.oncallStatus.subscribe(asf=>{
+  this.dataSource = new MatTableDataSource(asf);
+  setTimeout(() =>{
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  });
+ })
+}
 
-
-      }
       
 
   }
@@ -72,18 +79,19 @@ on_list:oncall[]
 
 
 async onFindOncall() {
+  this.fsearch=true;
  this.isLoading=true;
  this.oncallForm.patchValue({team:this.tname})
  console.log(this.oncallForm.value)
  
  this.oncall_list=await this.as.getoncall(this.oncallForm.value).toPromise();
  console.log(this.oncall_list)
- this.oncallForm.reset('');
+ this.oncallForm.reset()
   this.dataSource = new MatTableDataSource(this.oncall_list);
-
-  this.dataSource.paginator = this.paginator;
-  console.log("Hi")
- this.dataSource.sort= this.sort
+  setTimeout(() =>{
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  });
 this.isLoading=false;
 }
 onAddoncall()
