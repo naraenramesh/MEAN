@@ -370,9 +370,6 @@ Apache-2.0
  
 
 
-saturn-datepicker
-MIT
-
 tslib
 0BSD
 Copyright (c) Microsoft Corporation.
