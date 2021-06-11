@@ -28,7 +28,13 @@ export class AssociatesEditComponent implements OnInit {
 emplist:string[];
 filteredOptions: Observable<string[]>;
 myControl = new FormControl();
-
+visible = true;
+  selectable = true;
+  removable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  teamCtrl = new FormControl();
+  teams: string[]=[]
+  teamsshow: string[];
 ngOnInit() {
 
     this.edit_trigger=false;
@@ -57,7 +63,6 @@ this.filteredOptions = this.myControl.valueChanges.pipe(
     let btmail='';
     let UIN='';
 	let contact='';
-	let teams=[];
 
 if(this.edit_trigger)
 {
@@ -68,7 +73,7 @@ if(this.edit_trigger)
     btmail=this.empSel.empBTemailid
     contact=this.empSel.empcontactno;
     UIN=this.empSel.empUIN;
-    teams=this.empSel.empTeams;
+    this.teams=this.empSel.empTeams;
 //console.log(teams)
     this.empnames=this.ts.getExlcudeAssociateNames(name);
   }
@@ -82,7 +87,7 @@ empcogemailid: new FormControl(cogmail,[Validators.required, Validators.email]),
 empBTemailid: new FormControl(btmail,[Validators.required,Validators.email]),
 empcontactno:new FormControl(contact,[Validators.required,Validators.maxLength(10),Validators.pattern('[0-9]*')]),
 empUIN:new FormControl(UIN,[Validators.required,Validators.maxLength(9),Validators.pattern('[0-9]*')]),
-empTeams:new FormControl(teams)
+empTeams:new FormControl(this.teams)
       })
     }
 
@@ -116,6 +121,7 @@ this.rs.navigate(['../../associates'],{relativeTo:this.ru})
 }
 else
 {
+  console.log(this.associateForm.value)
   this.ts.addAssociate(this.associateForm.value).subscribe(emp_loaded => {
 
 this.hs.openSnackBar("New Associate Added","Success")
@@ -131,13 +137,7 @@ this.rs.navigate(['../associates'],{relativeTo:this.ru})
 this.ts.associatenameSelected.next('');
 }
 
-visible = true;
-  selectable = true;
-  removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
-  teamCtrl = new FormControl();
-  teams: string[]=[];
-  teamsshow: string[];
+
 
   @ViewChild('teamInput') teamInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -152,12 +152,14 @@ visible = true;
   }
 
   add(event: MatChipInputEvent): void {
+
     const input = event.input;
     const value = event.value;
-
+console.log(value,input)
     // Add our team
     if ((value || '').trim()) {
       this.teams.push(value.trim());
+      console.log(this.teams)
     }
 
     // Reset the input value
@@ -177,7 +179,9 @@ visible = true;
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+  
     this.teams.push(event.option.viewValue);
+
     this.teamInput.nativeElement.value = '';
     this.teamCtrl.setValue(null);
   }
